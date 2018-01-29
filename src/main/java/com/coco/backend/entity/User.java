@@ -5,16 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "users", uniqueConstraints = @javax.persistence.UniqueConstraint(columnNames = { "userName",
-		"password" }))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "userName", "password" }))
 public class User {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "user_id", nullable = false, unique = true)
 	private Integer userID;
 
 	@Column(name = "user_name", nullable = false, unique = true)
@@ -26,7 +24,7 @@ public class User {
 	@Column(name = "activo", nullable = true)
 	private boolean activo;
 
-	public User() { 
+	public User() {
 	}
 
 	public User(Integer userID, String userName, String password, boolean activo) {
