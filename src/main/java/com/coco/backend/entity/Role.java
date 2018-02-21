@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = { "roleName" }))
+@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = { "role_name" }))
 public class Role {
 
 	@Id
@@ -16,6 +16,9 @@ public class Role {
 
 	@Column(name = "role_name", unique = true, nullable = false)
 	private String roleName;
+
+	public Role() {
+	}
 
 	public Role(Integer roleID, String roleName) {
 		super();

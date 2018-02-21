@@ -1,0 +1,21 @@
+spring:
+# Configurar la coneccion a la base de datos
+  datasource:
+    url: jdbc:mysql://localhost:3306/CoCo
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+# Indica si debe mostrar el log de las consultas sql ejecutadas Bueno a la hora de depurar
+    show-sql: true 
+# Configurar Hibernate
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect  
+    database: mysql
+  thymeleaf:
+    cache: false

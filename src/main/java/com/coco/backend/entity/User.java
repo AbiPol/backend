@@ -4,11 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name = "users", uniqueConstraints = @javax.persistence.UniqueConstraint(columnNames = { "userName",
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "user_name",
 		"password" }))
 public class User {
 
@@ -23,8 +26,12 @@ public class User {
 	@Column(name = "password", nullable = false, length = 60)
 	private String password;
 
-	@Column(name = "activo", nullable = true)
-	private boolean activo;
+	//@Column(name = "activo", nullable = true)
+	//private boolean activo;
+	
+	@OneToOne
+	@JoinColumn(name="role_fk")
+	private Role role;
 
 	public User() { 
 	}
@@ -34,14 +41,14 @@ public class User {
 		this.userID = userID;
 		this.userName = userName;
 		this.password = password;
-		this.activo = activo;
+		//this.activo = activo;
 	}
 
 	public User(String userName, String password, boolean activo) {
 		super();
 		this.userName = userName;
 		this.password = password;
-		this.activo = activo;
+	//	this.activo = activo;
 	}
 
 	public Integer getUserID() {
@@ -68,12 +75,20 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isActivo() {
+/*	public boolean isActivo() {
 		return activo;
 	}
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
+*/
+	public Role getRole() {
+		return role;
+	}
 
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
 }
