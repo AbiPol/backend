@@ -11,7 +11,7 @@ import javax.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "userName", "password" }))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "user_Name", "password" }))
 
 public class User {
 
@@ -34,21 +34,15 @@ public class User {
 
 	public User() {
 	}
-
-	public User(Integer userID, String userName, String password, boolean activo) {
+	
+	public User(Integer userID, String userName, String password, Role role) {
 		super();
 		this.userID = userID;
 		this.userName = userName;
 		this.password = password;
-		//this.activo = activo;
+		this.role = role;
 	}
 
-	public User(String userName, String password, boolean activo) {
-		super();
-		this.userName = userName;
-		this.password = password;
-	//	this.activo = activo;
-	}
 
 	public Integer getUserID() {
 		return userID;
@@ -74,14 +68,6 @@ public class User {
 		this.password = password;
 	}
 
-/*	public boolean isActivo() {
-		return activo;
-	}
-
-	public void setActivo(boolean activo) {
-		this.activo = activo;
-	}
-*/
 	public Role getRole() {
 		return role;
 	}
@@ -89,5 +75,5 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-	
 }
+	

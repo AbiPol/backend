@@ -10,6 +10,6 @@ import com.coco.backend.entity.Role;
 @Repository("roleRepository")
 public interface RoleRepository extends JpaRepository<Role, Serializable>{
 
-	public abstract Role findByRoleID(Integer ID);
+	public abstract Role findByCodRole(Integer ID);
 
 }

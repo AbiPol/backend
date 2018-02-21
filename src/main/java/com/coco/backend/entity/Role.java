@@ -20,10 +20,6 @@ public class Role {
 	@Column(name = "role_name", unique = true, nullable = false)
 	private String roleName;
 
-
-	public Role(Integer roleID, String roleName) {
-	}
-
 	@OneToOne
 	private User user;
 
