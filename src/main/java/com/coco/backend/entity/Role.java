@@ -8,11 +8,9 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-<<<<<<< HEAD
+
 @Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = { "role_name" }))
-=======
-@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = { "user" }))
->>>>>>> ca66fed601998c4667cb2323b500f199ffed3110
+
 public class Role {
 
 	@Id
@@ -22,12 +20,10 @@ public class Role {
 	@Column(name = "role_name", unique = true, nullable = false)
 	private String roleName;
 
-<<<<<<< HEAD
-	public Role() {
-	}
 
 	public Role(Integer roleID, String roleName) {
-=======
+	}
+
 	@OneToOne
 	private User user;
 
@@ -35,7 +31,7 @@ public class Role {
 	}
 
 	public Role(Integer codRole, String roleName, User user) {
->>>>>>> ca66fed601998c4667cb2323b500f199ffed3110
+
 		super();
 		this.codRole = codRole;
 		this.roleName = roleName;

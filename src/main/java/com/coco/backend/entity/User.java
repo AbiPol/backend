@@ -8,17 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-<<<<<<< HEAD
 
-
-@Entity
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "user_name",
-		"password" }))
-=======
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "userName", "password" }))
->>>>>>> ca66fed601998c4667cb2323b500f199ffed3110
+
 public class User {
 
 	@Id
