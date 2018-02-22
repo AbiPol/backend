@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.coco.backend.entity.User;
 import com.coco.backend.service.impl.UserRoleServiceImpl;
 
 @RestController
@@ -34,5 +35,18 @@ public class NameRoleRestController {
 		LOG.info("nombre de usuario: -- " + nameUser + " --");
 		
 		return new ResponseEntity<String>(nameUser, HttpStatus.OK);
+	}
+	
+	@GetMapping("/consultaUser")
+	public ResponseEntity<User> user (){
+		LOG.info("Entramos en el controller User");
+		int userId = 3;
+		User user;
+		
+		LOG.info("ID de susario: -- " + userId + " --");
+		user = userRoleServiceImpl.findUser(userId);
+		LOG.info("nombre de usuario: -- " + user + " --");
+		
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 }

@@ -28,14 +28,15 @@ public class User {
 	//@Column(name = "activo", nullable = true)
 	//private boolean activo;
 	
-	@OneToOne
-	@JoinColumn(name="role_fk")
-	private Role role;
+	//@OneToOne
+	//@JoinColumn(name="role_fk")
+	@Column(name = "role", nullable = false, length = 60)
+	private String role;
 
 	public User() {
 	}
 	
-	public User(Integer userID, String userName, String password, Role role) {
+	public User(Integer userID, String userName, String password, String role) {
 		super();
 		this.userID = userID;
 		this.userName = userName;
@@ -68,11 +69,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Role getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 }
